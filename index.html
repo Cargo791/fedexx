@@ -64,30 +64,27 @@
 /* Progress bar */
 .progress-bar-wrapper {
   position: relative;
-  margin-bottom: 60px;
+  margin: 40px 0 60px;
 }
-
 .progress-line {
   position: absolute;
-  top: 18px;
+  top: 22px;
   left: 0;
   right: 0;
-  height: 4px;
-  background: #e5e7eb;
-  border-radius: 2px;
-  overflow: hidden;
+  height: 3px;
+  background: #d1d5db;
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(to right, #f59e0b, #7c3aed, #7c3aed);
-  transition: width 0.4s ease;
+  background: linear-gradient(to right, #f59e0b, #6366f1, #6366f1, #22c55e);
 }
 
-/* Steps */
+/* steps */
 .steps {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .step {
@@ -99,31 +96,57 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #d1d5db;
+  border: 3px solid #d1d5db;
+  background: #fff;
   margin: 0 auto 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px;
 }
 
+/* inner dot */
+.circle::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d1d5db;
+}
 .circle.orange {
+  border-color: #f59e0b;
+}
+.circle.orange::after {
   background: #f59e0b;
 }
 
 .circle.purple {
-  background: #7c3aed;
+  border-color: #6366f1;
+}
+.circle.purple::after {
+  background: #6366f1;
 }
 
 .circle.green {
+  border-color: #22c55e;
+}
+    .circle.green::after {
+  content: "✔";
+  color: white;
+  font-size: 16px;
+  width: 22px;
+  height: 22px;
   background: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* labels */
 .step span {
   font-size: 14px;
-  color: #555;
+  text-decoration: underline;
+  color: #111;
 }
 
 /* Delivered text */
