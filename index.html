@@ -776,6 +776,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       const data = await response.json();
+      const eta = data.eta
+  ? new Date(data.eta).toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    })
+  : "Pending";
       const receiverName = data.receiver_name || "N/A";
 const receiverEmail = data.receiver_email || "N/A";
 const packageName = data.package_description || "N/A";
@@ -847,11 +855,11 @@ const packageWeight = data.package_weight || "N/A";
     </div>
   </div>
 
-  <div class="delivered-box">
-    <h2>On its Way - Signature not required</h2>
-    <p>${location}</p>
-    <p>Delivered ${deliveredDate}</p>
-  </div>
+<div class="delivered-box">
+  <h2>Shipment Status: ${data.status || "In Transit"}</h2>
+  <p><strong>Current Location:</strong> ${location}</p>
+  <p><strong>Expected Delivery:</strong> ${eta}</p>
+</div>
 
   <div class="success-card">
     <div class="success-icon">✔</div>
